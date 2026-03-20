@@ -57,7 +57,8 @@ public class GithubService {
         for(GHTreeEntry entry:tree.getTree())
         {
             if("blob".equals(entry.getType()) && (entry.getPath().endsWith("xml") || entry.getPath().endsWith("java")
-             || entry.getPath().endsWith("py") || entry.getPath().endsWith("js") || entry.getPath().endsWith("Html")))
+             || entry.getPath().endsWith("py") || entry.getPath().endsWith("js") || entry.getPath().endsWith("Html") ||
+                    entry.getPath().endsWith("ts") || entry.getPath().endsWith("jsx") || entry.getPath().endsWith("tsx")))
             {
                 GHBlob blob=ghRepository.getBlob(entry.getSha());
                 InputStream is=blob.read();

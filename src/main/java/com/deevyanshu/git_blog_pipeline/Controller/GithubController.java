@@ -2,16 +2,16 @@ package com.deevyanshu.git_blog_pipeline.Controller;
 
 import com.deevyanshu.git_blog_pipeline.Service.AiService;
 import com.deevyanshu.git_blog_pipeline.Service.GithubService;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 
 import java.io.IOException;
 
 @RestController
 @RequestMapping("api/v1")
+@CrossOrigin("http://localhost:4200")
 public class GithubController {
 
     private GithubService githubService;
@@ -35,4 +35,15 @@ public class GithubController {
     {
         return ResponseEntity.ok(this.aiService.chat(ques,url));
     }
+
+    @PostMapping(value = "/stream",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<String> stream(@RequestParam(value = "q",required = true) String ques,
+                             @RequestParam(value = "w", required = true) String url)
+    {
+        return this.aiService.streamResponse(ques,url);
+    }
+
+
+
+
 }
