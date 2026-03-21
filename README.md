@@ -1,5 +1,8 @@
 # Git Blog Pipeline
 
+## Live URL
+https://magical-kringle-1f1391.netlify.app/
+
 ## About the Project
 **Git Blog Pipeline** is a Spring Boot-based application designed to integrate GitHub repositories with AI-powered analysis. The project allows users to load code from a GitHub repository, process it using Google Gemini embeddings, and store it in a Pinecone vector database. Once indexed, users can perform RAG (Retrieval-Augmented Generation) based chats to ask specific questions about the codebase.
 
