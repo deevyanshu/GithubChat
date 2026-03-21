@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("api/v1")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://magical-kringle-1f1391.netlify.app")
 public class GithubController {
 
     private GithubService githubService;
